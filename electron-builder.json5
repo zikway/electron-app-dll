@@ -1,0 +1,37 @@
+// @see https://www.electron.build/configuration/configuration
+{
+  $schema: "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  appId: "electron-app-template-2024-or-your-app-id",
+  asar: true,
+  productName: "Your production name",
+  directories: {
+    output: "output/release/${version}"
+  },
+  files: ["output/dist", "output/dist-electron", "package.json"],
+  mac: {
+    target: ["dmg"],
+    artifactName: "${productName}-Mac-${version}-Installer.${ext}"
+  },
+  win: {
+    target: [
+      {
+        target: "nsis",
+        arch: ["x64"]
+      }
+    ],
+    artifactName: "${productName}-Windows-${version}-Setup.${ext}",
+    icon: "public/icons/favicon.ico"
+  },
+  nsis: {
+    oneClick: false,
+    perMachine: false,
+    allowToChangeInstallationDirectory: true,
+    deleteAppDataOnUninstall: false,
+    installerIcon: "public/icons/favicon.ico",
+    installerHeaderIcon: "public/icons/favicon.ico"
+  },
+  linux: {
+    target: ["AppImage"],
+    artifactName: "${productName}-Linux-${version}.${ext}"
+  }
+}

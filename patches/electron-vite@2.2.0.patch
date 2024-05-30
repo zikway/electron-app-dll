@@ -1,0 +1,39 @@
+diff --git a/dist/chunks/lib-iT7MOERj.mjs b/dist/chunks/lib-iT7MOERj.mjs
+index ce769e8650f005c064f35fb8b2c827cd3bb67d23..593fa0f3e6c13cc64e8e569672b67553748ded1e 100644
+--- a/dist/chunks/lib-iT7MOERj.mjs
++++ b/dist/chunks/lib-iT7MOERj.mjs
+@@ -975,7 +975,7 @@ function mergePlugins(config, plugins) {
+     const userPlugins = config.plugins || [];
+     config.plugins = userPlugins.concat(plugins);
+ }
+-const CONFIG_FILE_NAME = 'electron.vite.config';
++const CONFIG_FILE_NAME = 'vite.config';
+ async function loadConfigFromFile(configEnv, configFile, configRoot = process.cwd(), logLevel, ignoreConfigWarning = false) {
+     if (configFile && /^vite.config.(js|ts|mjs|cjs|mts|cts)$/.test(configFile)) {
+         throw new Error(`config file cannot be named ${configFile}.`);
+diff --git a/dist/chunks/lib-vZ2n_Hbj.cjs b/dist/chunks/lib-vZ2n_Hbj.cjs
+index 846ae43807a7a4be9725b3a09a99691c88df562b..61c9fed45c0c8b5a480b374e6f73e56e40371226 100644
+--- a/dist/chunks/lib-vZ2n_Hbj.cjs
++++ b/dist/chunks/lib-vZ2n_Hbj.cjs
+@@ -978,7 +978,7 @@ function mergePlugins(config, plugins) {
+     const userPlugins = config.plugins || [];
+     config.plugins = userPlugins.concat(plugins);
+ }
+-const CONFIG_FILE_NAME = 'electron.vite.config';
++const CONFIG_FILE_NAME = 'vite.config';
+ async function loadConfigFromFile(configEnv, configFile, configRoot = process.cwd(), logLevel, ignoreConfigWarning = false) {
+     if (configFile && /^vite.config.(js|ts|mjs|cjs|mts|cts)$/.test(configFile)) {
+         throw new Error(`config file cannot be named ${configFile}.`);
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 059a75974ddfa1d36e683c597518d0cdc82c688e..c48d7b728e286965206933773e39995db32caba4 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -59,7 +59,7 @@ type ElectronViteConfigFnPromise = (env: ConfigEnv) => Promise<ElectronViteConfi
+ type ElectronViteConfigFn = (env: ConfigEnv) => ElectronViteConfig | Promise<ElectronViteConfig>;
+ type ElectronViteConfigExport = ElectronViteConfig | Promise<ElectronViteConfig> | ElectronViteConfigFnObject | ElectronViteConfigFnPromise | ElectronViteConfigFn;
+ /**
+- * Type helper to make it easier to use `electron.vite.config.*`
++ * Type helper to make it easier to use `vite.config.*`
+  * accepts a direct {@link ElectronViteConfig} object, or a function that returns it.
+  * The function receives a object that exposes two properties:
+  * `command` (either `'build'` or `'serve'`), and `mode`.

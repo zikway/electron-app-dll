@@ -1,0 +1,13 @@
+output
+dist*
+/public/*
+*.yaml
+LICENSE.md
+tsconfig.json
+tsconfig.*.json
+.local
+/node_modules/**
+
+**/*.svg
+**/*.sh
+**/*.md

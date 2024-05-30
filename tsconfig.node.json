@@ -1,0 +1,30 @@
+{
+  "extends": "@electron-toolkit/tsconfig/tsconfig.node.json",
+  "include": [
+    "vite.config.*",
+    "electron",
+    "build",
+    "types/*.d.ts",
+  ],
+  "exclude": [
+    "node_modules/**/*.*",
+    "dist*",
+    "output"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "$/*": [
+        "electron/*"
+      ]
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "types": [
+      "electron-vite/node",
+      "./node_modules/reflect-metadata"
+    ],
+  }
+}
