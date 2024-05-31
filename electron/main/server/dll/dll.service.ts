@@ -22,4 +22,17 @@ export class DllService {
     const ret = MessageBoxA(null, "Do you want another message box?", "Koffi", MB_YESNO | MB_ICONQUESTION);
     if (ret === IDYES) MessageBoxW(null, "Hello World!", "Koffi", MB_ICONINFORMATION);
   }
+  add(arg1: number | `${number}`, arg2: number | `${number}`) {
+    console.log("function add----------------------");
+    console.log("inject data", typeof arg1, arg1, typeof arg2, arg2);
+    console.log("function add---------------------- end");
+    return Number(arg1) + Number(arg2);
+  }
+  printObject(obj: { [key: string]: string | number }) {
+    console.log("function printObject ----------------------");
+    console.log("function printObject", obj);
+    console.log("keys:", Object.keys(obj));
+    console.log("function printObject ---------------------- end");
+    return "";
+  }
 }

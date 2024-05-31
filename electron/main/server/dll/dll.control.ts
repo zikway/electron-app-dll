@@ -9,4 +9,12 @@ export class DllController {
   msgBox() {
     return this.dllService.openMsgBox();
   }
+  @IpcHandle(DllEvtEnum.DLL_TRANSPORT_DATA)
+  basicData(arg1, arg2) {
+    return this.dllService.add(arg1, arg2);
+  }
+  @IpcHandle(DllEvtEnum.DLL_TRANSPORT_DATA_OBJECT)
+  objData(obj) {
+    return this.dllService.printObject(obj);
+  }
 }
