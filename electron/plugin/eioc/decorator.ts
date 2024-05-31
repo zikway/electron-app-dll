@@ -46,7 +46,7 @@ type ResType<T = any> = {
   other?: T;
 };
 export function FormatResRule(res: ResType | string) {
-  if (typeof res === "string" || res === undefined) {
+  if (!(res instanceof Object)) {
     return {
       code: 200,
       data: res
