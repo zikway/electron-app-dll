@@ -42,6 +42,7 @@
     "@rushstack/eslint-patch": "^1.7.1",
     "@sa/axios": "workspace:*",
     "@sa/color": "workspace:*",
+    "@sa/enums": "workspace:^",
     "@sa/hooks": "workspace:*",
     "@sa/materials": "workspace:*",
     "@sa/scripts": "workspace:*",

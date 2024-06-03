@@ -5,6 +5,7 @@
     "electron",
     "build",
     "types/*.d.ts",
+    "plugins/enums/**/*.ts"
   ],
   "exclude": [
     "node_modules/**/*.*",
