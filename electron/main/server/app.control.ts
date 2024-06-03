@@ -1,5 +1,5 @@
 import { IpcEventEnum } from "@sa/enums";
-import { Controller, IpcHandle } from "../../plugin/eioc/decorator";
+import { Controller, IpcHandle } from "@sa/eioc";
 import { AppService } from "./app.service";
 @Controller()
 export class AppController {

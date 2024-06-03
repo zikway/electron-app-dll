@@ -1,6 +1,6 @@
 import { IpcEventEnum } from "@sa/enums";
+import { Controller, IpcHandle } from "@sa/eioc";
 import { WindowService } from "./window.service";
-import { Controller, IpcHandle } from "$/plugin/eioc/decorator";
 
 @Controller()
 export class WindowController {

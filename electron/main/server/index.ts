@@ -1,4 +1,4 @@
-import { createEioc } from "../../plugin/eioc";
+import { createEioc } from "@sa/eioc";
 import { AppController } from "./app.control";
 import { DllController } from "./dll/dll.control";
 import { WindowController } from "./window/window.control";

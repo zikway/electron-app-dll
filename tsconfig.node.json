@@ -6,7 +6,7 @@
     "build",
     "types/*.d.ts",
     "plugins/enums/**/*.ts"
-  ],
+, "packages/eioc"  ],
   "exclude": [
     "node_modules/**/*.*",
     "dist*",

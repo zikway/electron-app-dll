@@ -1,6 +1,6 @@
 import { DllEvtEnum } from "@sa/enums";
+import { Controller, FormatAllMethods, IpcHandle } from "@sa/eioc";
 import { DllService } from "./dll.service";
-import { Controller, FormatAllMethods, IpcHandle } from "$/plugin/eioc/decorator";
 @Controller()
 @FormatAllMethods()
 export class DllController {
