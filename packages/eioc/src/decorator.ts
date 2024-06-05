@@ -1,7 +1,7 @@
 import "reflect-metadata";
-import { CostomMetaDataEnum } from "./enums";
+import { CostomMetaDataEnum } from "../src/enums";
 
-import type { Construct, ModulePropsType } from "./types";
+import type { Construct, ModulePropsType } from "../src/types";
 
 export function Controller(rootPath?: string) {
   return (target, _context?: string | symbol): void => {
