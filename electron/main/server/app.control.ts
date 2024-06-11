@@ -1,6 +1,6 @@
-import { Controller, IpcHandle } from "../../plugin/eioc/decorator";
+import { IpcEventEnum } from "@sa/enums";
+import { Controller, IpcHandle } from "@sa/eioc";
 import { AppService } from "./app.service";
-import { IpcEventEnum } from "./enums";
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}

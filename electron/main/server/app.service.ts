@@ -1,4 +1,4 @@
-import { Injectable } from "../../plugin/eioc/decorator";
+import { Injectable } from "@sa/eioc";
 @Injectable()
 export class AppService {
   ping() {

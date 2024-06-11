@@ -53,3 +53,4 @@ export async function createEioc({ controllers }: Options) {
     return new constructor(...services);
   }
 }
+export * from "./decorator";
