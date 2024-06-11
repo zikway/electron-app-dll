@@ -40,7 +40,7 @@ export function Module(metadata: ModulePropsType) {
   };
 }
 type ResType<T = any> = {
-  code: number;
+  code?: number;
   data: any;
   msg?: string;
   other?: T;
@@ -71,7 +71,7 @@ export function FormatAllMethods(formatRule = FormatResRule) {
         descriptor.value = function (...args: any[]) {
           try {
             const result = originalMethod.apply(this, args);
-            return formatRule(result);
+            return formatRule({ data: result });
           } catch (error: any) {
             console.error(`Error in method ${fnName}:`, error);
             return formatRule({ code: 500, data: {}, msg: error?.message || error });
