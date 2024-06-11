@@ -17,4 +17,8 @@ export class DllController {
   objData(obj) {
     return this.dllService.printObject(obj);
   }
+  @IpcHandle(DllEvtEnum.DLL_DEMO)
+  demo(data) {
+    return this.dllService.demo(data);
+  }
 }

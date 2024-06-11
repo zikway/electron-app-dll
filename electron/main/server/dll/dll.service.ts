@@ -1,10 +1,29 @@
 import koffi from "koffi";
 import { Injectable } from "@sa/eioc";
+import { getExtraResourcesPath } from "$/utils/index";
+
 @Injectable()
 export class DllService {
   protected lib: koffi.IKoffiLib;
+  protected zkmlib: koffi.IKoffiLib;
+  protected structureSet: Set<string>;
   constructor() {
     this.lib = koffi.load("user32.dll");
+    this.zkmlib = koffi.load(getExtraResourcesPath("libzkm.dll"));
+    this.structureSet = new Set();
+  }
+  demo(data) {
+    // Prevent declate duplicate type structure
+    if (!this.structureSet.has("Foo1")) {
+      koffi.struct("Foo1", {
+        i: "int",
+        a16: "int"
+      });
+      this.structureSet.add("Foo1");
+    }
+
+    const ReturnFoo1 = this.zkmlib.func("Foo1 ReturnFoo1(Foo1 p)");
+    return ReturnFoo1(data || { i: 5, a16: 1 });
   }
   openMsgBox() {
     // Declare constants

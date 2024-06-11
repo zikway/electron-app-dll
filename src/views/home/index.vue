@@ -1,16 +1,43 @@
 <script setup lang="ts">
-import { NButton, NCard } from "naive-ui";
-
+import { NButton, NCard, useNotification } from "naive-ui";
+import { DllEvtEnum } from "@sa/enums";
+const notification = useNotification();
 async function handlexx() {
-  const res = await window.ipc.invoke("dll:open-msg-box");
-  console.log("handlexx res", res);
+  try {
+    await window.ipc.invoke(DllEvtEnum.DLL_MSG_BOX);
+  } catch (error: any) {
+    notification.error({
+      content: "异常",
+      meta: error?.message || error,
+      duration: 2500,
+      keepAliveOnHover: true
+    });
+  }
+}
+async function handleReturn() {
+  try {
+    const res = await window.ipc.invoke(DllEvtEnum.DLL_DEMO);
+    notification.success({
+      content: "收到信息",
+      meta: JSON.stringify(res.data || {}),
+      duration: 2500,
+      keepAliveOnHover: true
+    });
+  } catch (error: any) {
+    notification.error({
+      content: "异常",
+      meta: error?.message || error,
+      duration: 2500,
+      keepAliveOnHover: true
+    });
+  }
 }
 async function handleAdd() {
-  const res = await window.ipc.invoke("dll:transport-data", 12, '33');
+  const res = await window.ipc.invoke(DllEvtEnum.DLL_TRANSPORT_DATA, 12, "33");
   console.log("handlexx res", res);
 }
 async function handleSendObject() {
-  const res = await window.ipc.invoke("dll:transport-object",{a: 12, b: 'a word'});
+  const res = await window.ipc.invoke(DllEvtEnum.DLL_TRANSPORT_DATA_OBJECT, { a: 12, b: "a word" });
   console.log("handlexx res", res);
 }
 </script>
@@ -23,6 +50,7 @@ async function handleSendObject() {
         <NButton @click="handlexx">msgbox</NButton>
         <NButton @click="handleAdd">send primitive data</NButton>
         <NButton @click="handleSendObject">send object data</NButton>
+        <NButton @click="handleReturn">return</NButton>
       </div>
     </NCard>
   </NSpace>
